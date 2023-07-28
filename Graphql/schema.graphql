@@ -1,0 +1,36 @@
+type Ping {
+    name: String
+}
+
+enum Weather {
+    sunny
+    rainy
+    cloudy
+    windy
+    stormy
+}
+
+enum Visibility {
+    great
+    good
+    ok
+    poor
+}
+
+type Diary {
+    id: Int!
+    date: String!
+    weather: Weather
+    visibility: Visibility
+    comment: String
+}
+
+type Query {
+    ping: String,
+    diaries: [Diary!]!
+    findById(id: Int!): Diary
+}
+
+type Mutation {
+    addEntry(date: String weather: Weather visibility: Visibility comment: String): Diary
+}
